@@ -1,0 +1,64 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-658-575
+DEBUG:root:New Author Created
+DEBUG:root:(builtins.TypeError) SQLite Date type only accepts Python date objects as input.
+[SQL: INSERT INTO authors (name, birth, death) VALUES (?, ?, ?)]
+[parameters: [{'death': '2024-12-05', 'birth': '2024-12-05', 'name': 'Matthew'}]]
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 15:39:01] "POST /add_author HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/mattwilliams/PycharmProjects/bookAlchemy/bookstoreAlchemy/data_models.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-658-575
+DEBUG:root:New Author Created
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 15:39:58] "[32mPOST /add_author HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 15:39:58] "GET /add_author HTTP/1.1" 200 -
+DEBUG:root:New Author Created
+DEBUG:root:(sqlite3.OperationalError) database is locked
+[SQL: INSERT INTO authors (name, birth, death) VALUES (?, ?, ?)]
+[parameters: ('Stephen Hawking', '1942-01-08', '2018-03-14')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 15:44:31] "POST /add_author HTTP/1.1" 200 -
+DEBUG:root:New Author Created
+DEBUG:root:(sqlite3.OperationalError) database is locked
+[SQL: INSERT INTO authors (name, birth, death) VALUES (?, ?, ?)]
+[parameters: ('Matthew', '2024-12-06', '2024-11-27')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 15:46:33] "POST /add_author HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-658-575
+INFO:werkzeug: * Detected change in '/Users/mattwilliams/PycharmProjects/bookAlchemy/bookstoreAlchemy/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-658-575
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:22:30] "GET /add_author HTTP/1.1" 200 -
+DEBUG:root:New Author Created
+DEBUG:root:(sqlite3.OperationalError) no such table: authors
+[SQL: INSERT INTO authors (name, birth, death) VALUES (?, ?, ?)]
+[parameters: ('Matthew', '2024-12-11', '2024-12-19')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:22:42] "POST /add_author HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-658-575
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:25:39] "GET /add_author HTTP/1.1" 200 -
+DEBUG:root:New Author Created
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:25:44] "[32mPOST /add_author HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:25:44] "GET /add_author HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/mattwilliams/PycharmProjects/bookAlchemy/bookstoreAlchemy/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 124-658-575
+DEBUG:root:New Author Created
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:26:32] "[32mPOST /add_author HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Dec/2024 16:26:32] "GET /add_author HTTP/1.1" 200 -
