@@ -4,19 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Add Author</title>
   </head>
   <body>
+  <h1>Add Author</h1>
 
   <form action="/add_author" method="POST">
-  <label for="name">Author Name:</label> 
+  <label for="name">Author Name</label>
   <input type="text" id="name" name="name" required><br><br>
   
-  <label for="birthdate">Birthdate:</label> 
+  <label for="birthdate">Birthdate</label>
   <input type="date" id="birthdate" name="birthdate" required><br><br> 
-  <label for="date_of_death">Date of Death:</label> 
+  <label for="date_of_death">Date of Death</label>
   <input type="date" id="date_of_death" name="date_of_death"><br><br>
-  <input type="submit" value="Add Author"> 
+    <div class="button-container">
+      <input type="submit" value="Add Author">
+    </div>
   </form>
+
+      <!-- Get Flash Messages-->
+    <div class="flash-message-area">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul>
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ messages }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </div>
+
+  <div>
+    <p><a href="/add_book">Click here</a> to add a Book</p>
+  </div>
 
   </body>
 </html>

@@ -17,7 +17,7 @@ class Author(db.Model):
         return f"Author(id={self.id}, name={self.name}\n, birth={self.birth}\ndeath={self.death}\n"
 
     def __str__(self):
-        return f"Authors Details\nID: {self.id}\nName: {self.name}\nBirth: {self.birth}\nDeath: {self.death}\n"
+        return (f"Authors Details: ID={self.id} Name={self.name} Birth={self.birth} Death={self.death}")
 
 
 class Book(db.Model):
