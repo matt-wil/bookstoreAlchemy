@@ -35,5 +35,5 @@ class Book(db.Model):
         return f"Book(id={self.id}, author_id={self.author_id}, title={self.title}, publication_year={self.publication_year}, isbn={self.isbn}"
 
     def __str__(self):
-        return f"Book Details\nID: {self.id}\nAuthor ID: {self.author_id}\nTitle: {self.title}\nPublished in {self.publication_year}\nISBN: {self.isbn}\n"
+        return f"Book Details: ID={self.id} Author ID={self.author_id} Title={self.title} Published={self.publication_year} ISBN={self.isbn} "
 
