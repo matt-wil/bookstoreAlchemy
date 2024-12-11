@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
 from data_models import db, Author, Book
 from dotenv import load_dotenv
@@ -41,7 +41,7 @@ def add_author():
 
         if not name:
             flash("Name is required!", "error")
-            return redirect('/add_author')
+            return redirect(url_for('add_author'))
 
         new_author = Author(name=name, birth=birth, death=death)
         if new_author:
@@ -86,7 +86,7 @@ def add_book():
         author = request.form.get('drop-authors')
         if not title and year_published:
             flash("Title and year of publication are required!", "error")
-            return redirect('/add_book')
+            return redirect(url_for('add_book'))
 
         new_book = Book(title=title, isbn=isbn, publication_year=year_published, author_id=author)
         if new_book:
@@ -131,6 +131,22 @@ def home():
         else:
             books = Book.query.all()
     return render_template('home.html', books=books)
+
+
+@app.route("/book/<int:book_id>/delete", methods=['POST'])
+def delete_book(book_id):
+        book = Book.query.get_or_404(book_id)
+        author = book.author
+
+        db.session.delete(book)
+        db.session.commit()
+
+        if not author.books:
+            db.session.delete(author)
+            db.session.commit()
+
+        flash(f"Book '{book.title}' deleted successfully", "success")
+        return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

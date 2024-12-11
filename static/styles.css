@@ -16,6 +16,9 @@ h1 {
     margin-bottom: 100px;
     }
 
+.sort-button, button {
+    cursor: pointer;
+}
 .book-img {
     width: 100%;
     height: auto;
@@ -33,12 +36,17 @@ label {
     height: 30px;
 }
 
-.button:hover {
-    cursor: pointer;;
-}
-
 .button-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.home-page-info-and-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-page-info-and-button button {
+    margin-left: 10px;
 }

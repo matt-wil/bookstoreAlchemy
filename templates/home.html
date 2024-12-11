@@ -24,12 +24,15 @@
             <option value="title">Title</option>
             <option value="author">Author</option>
           </select>
-        <input type="submit" value="Sort">
+        <input type="submit" value="Sort" class="sort-button">
       </form>
 
     {% for book in books %}
-      <div>
+      <div class="home-page-info-and-button">
         <h3>{{ book.title }} by {{ book.author.name }}</h3>
+        <form action="{{ url_for('delete_book', book_id=book.id) }}" method="POST">
+          <button type="submit">Delete</button>
+        </form>
       </div>
     {% endfor %}
 
