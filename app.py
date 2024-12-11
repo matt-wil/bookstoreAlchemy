@@ -81,7 +81,7 @@ def add_book():
     if request.method == 'POST':
         title = request.form.get('title')
         year_published = request.form.get('year_of_publication')
-        # Implement API to retrieve the ISBN from the title
+        # V2 --Implement WorldCat API to retrieve the ISBN from the title
         isbn = request.form.get('isbn')
         author = request.form.get('drop-authors')
         if not title and year_published:
@@ -111,19 +111,25 @@ def home():
     Renders the home page, displaying all books and their authors with sorting functionality.
 
     - Retrieves the sorting criteria (`sort_by`) from the query string (defaults to 'title').
-    - Queries the database for all books, optionally sorting them by title or author name.
+    - Queries the database for all books, optionally sorting them by title or by author name
+      using the relationship between Book and Author models.
     - Passes the sorted list of books to the `home.html` template for rendering.
 
     :return: The rendered home.html template with sorted book data.
     """
+    # V2 -- Implement Pagination
+    # V2 -- Implement API to retrieve Book Covers for HTML
     sort_by = request.args.get("sort_by", "title")
-
-    if sort_by == "title":
-        books = Book.query.order_by(Book.title).all()
-    elif sort_by == "author":
-        books = Book.query.order_by(Book.author).all()
+    query = request.args.get("query", "")
+    if query:
+        books = Book.query.filter(Book.title.ilike(f"%{query}%")).all()
     else:
-        books = Book.query.all()
+        if sort_by == "title":
+            books = Book.query.order_by(Book.title).all()
+        elif sort_by == "author":
+            books = Book.query.order_by(Author.name).join(Book.author).all()
+        else:
+            books = Book.query.all()
     return render_template('home.html', books=books)
 
 
