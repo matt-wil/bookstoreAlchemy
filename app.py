@@ -135,18 +135,18 @@ def home():
 
 @app.route("/book/<int:book_id>/delete", methods=['POST'])
 def delete_book(book_id):
-        book = Book.query.get_or_404(book_id)
-        author = book.author
+    book = Book.query.get_or_404(book_id)
+    author = book.author
 
-        db.session.delete(book)
+    db.session.delete(book)
+    db.session.commit()
+
+    if not author.books:
+        db.session.delete(author)
         db.session.commit()
 
-        if not author.books:
-            db.session.delete(author)
-            db.session.commit()
-
-        flash(f"Book '{book.title}' deleted successfully", "success")
-        return redirect(url_for('home'))
+    flash(f"Book '{book.title}' deleted successfully", "success")
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

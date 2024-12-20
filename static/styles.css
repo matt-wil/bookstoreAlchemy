@@ -19,10 +19,19 @@ h1 {
 .sort-button, button {
     cursor: pointer;
 }
-.book-img {
-    width: 100%;
+
+img {
+    max-width: 100%;
     height: auto;
+    display: block;
 }
+
+.book-img {
+    max-width: 150px; /* Limit image width to a reasonable size */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline elements causing layout shifts */
+}
+
 
 label {
     display: grid;
@@ -46,7 +55,10 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Allows content to wrap if space is limited */
+    gap: 10px; /* Adds space between items */
 }
+
 .home-page-info-and-button button {
     margin-left: 10px;
 }
